@@ -44,7 +44,8 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'blog',
         'crispy_forms',
-        'crispy_bootstrap5'
+        'crispy_bootstrap5',
+        'debug_toolbar',
     ]
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -52,6 +53,7 @@ class Dev(Configuration):
 
 
     MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -59,6 +61,7 @@ class Dev(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         #'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        
     ]
 
     ROOT_URLCONF = 'blango.urls'
@@ -195,3 +198,5 @@ class Dev(Configuration):
         'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
         'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     ]
+
+    INTERNAL_IPS = ["192.168.10.93"]

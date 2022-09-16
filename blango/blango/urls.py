@@ -16,9 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+import debug_toolbar
 
 print(f"Time zone: {settings.TIME_ZONE}")
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls')),
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path ("__debug__/", include(debug_toolbar.urls)),
+    ]
+
+
