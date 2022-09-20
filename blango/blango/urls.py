@@ -22,7 +22,8 @@ print(f"Time zone: {settings.TIME_ZONE}")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('', include('blango_auth.urls'))
+    path('', include('blango_auth.urls')),
+    path('accounts/', include("allauth.urls"))
 
 ]
 

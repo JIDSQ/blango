@@ -40,6 +40,7 @@ class Dev(Configuration):
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
+        'django.contrib.sites',
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'blog',
@@ -47,6 +48,10 @@ class Dev(Configuration):
         'crispy_forms',
         'crispy_bootstrap5',
         'debug_toolbar',
+        'allauth',
+        'allauth.account',
+        'allauth.socialaccount',
+        'allauth.socialaccount.providers.google',
     ]
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -207,3 +212,9 @@ class Dev(Configuration):
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     ACCOUNT_ACTIVATION_DAYS = 7
     REGISTRATION_OPEN = False
+
+    SITE_ID = 1
+    ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+    ACCOUNT_EMAIL_REQUIRED = True
+    ACCOUNT_USERNAME_REQUIRED = False
+    ACCOUNT_AUTHENTICATION_METHOD = "email"
